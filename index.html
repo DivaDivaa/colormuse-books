@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorMuse Books – Custom AI Coloring Books</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-rPSr3IKTrt1hyNX79rrmS0mmZzQ4wWn1n2rJfZeTwr84HUdKMm8X1rWtzGJ7nM613rRh6OqxG7B9z0cG3bYy/A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PayPal SDK (replace YOUR_CLIENT_ID with your own client id from PayPal) -->
+    <!-- The PayPal button will be rendered inside the order modal. This script must be loaded here so the `paypal` object is available when the modal opens. -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="brand"><img src="assets/logo.png" alt="ColorMuse logo" class="logo">ColorMuse&nbsp;Books</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#create">Create</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>Create Your Own Coloring Book</h1>
+            <p>Describe your dream theme and watch our AI craft a one‑of‑a‑kind adult coloring book just for you.</p>
+            <a href="#create" class="btn primary-btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Create section -->
+    <section class="create-section" id="create">
+        <h2>Create Your Custom Coloring Book</h2>
+        <p>Enter a prompt describing your desired theme—florals, animals, cosmic mandalas, or anything you can imagine—and our AI will generate 25 intricately detailed pages.</p>
+        <textarea id="promptInput" placeholder="Describe your dream coloring book..."></textarea>
+        <button id="generateBtn" class="btn primary-btn">Generate Preview</button>
+        <div id="previewGrid" class="preview-grid"></div>
+        <div id="orderSection" class="order-section" style="display:none;">
+            <h3>Your custom book</h3>
+            <p>This book includes 25 AI‑generated pages based on your prompt. Price: <span id="price">$29.99</span></p>
+            <button id="orderBtn" class="btn primary-btn">Order Your Book</button>
+        </div>
+    </section>
+
+    <!-- Products section removed -->
+
+    <!-- About section -->
+    <section class="about" id="about">
+        <h2>About ColorMuse Books</h2>
+        <p>ColorMuse Books harnesses AI to create one‑of‑a‑kind adult coloring books. Each page is generated from your imagination and printed on demand, so no two books are the same. With print‑on‑demand there’s no inventory and your custom book ships when ordered, reducing waste and upfront costs. Digital creation also means we can offer high margins and personalized products【410039679060032†L160-L200】.</p>
+        <p>Coloring has grown into a popular mindfulness activity for adults. Our AI‑driven approach pairs modern technology with the timeless joy of coloring to give you a relaxing experience tailored to your interests.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy;&nbsp;2025 ColorMuse Books. All rights reserved. Contact us at <a href="mailto:hello@colormusebooks.com">hello@colormusebooks.com</a>.</p>
+    </footer>
+
+    <!-- Order modal -->
+    <div class="order-modal" id="orderModal">
+        <div class="order-content">
+            <h3>Place Your Order</h3>
+            <!-- PayPal buttons container. Initially visible; after payment it will be hidden and the order form will appear. -->
+            <div id="paypalContainer"></div>
+            <!-- Order form: hidden by default until payment is complete -->
+            <form id="orderForm" style="display:none;">
+                <label>Name<br><input type="text" id="customerName" required></label>
+                <label>Email<br><input type="email" id="customerEmail" required></label>
+                <label>Shipping Address<br><textarea id="customerAddress" required></textarea></label>
+                <button type="submit" class="btn primary-btn">Submit Order</button>
+                <button type="button" class="btn secondary-btn" id="cancelOrderBtn">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
